@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ actor.name }}</title>
+</head>
+<body>
+    <h1>{{ actor.name }}</h1>
+
+    <h2>Movies</h2>
+    <ul>
+        {% for movie in movies %}
+            <li><a href="{% url 'movie_detail' movie.id %}">{{ movie.title }}</a></li>
+        {% empty %}
+            <li>No movies found.</li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="{% url 'search' %}">← Back to search</a></p>
+</body>
+</html>
